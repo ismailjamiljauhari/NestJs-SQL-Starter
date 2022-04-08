@@ -7,6 +7,7 @@ import { AuthController } from './auth.controller';
 import { UsersModule } from 'src/users/users.module';
 import { LocalStrategy } from './local.strategy';
 import { JWT_SECRET, JWT_EXPIRE } from 'config/auth';
+import { JwtStrategy } from './jwt.strategy';
 
 @Module({
   imports: [
@@ -17,7 +18,7 @@ import { JWT_SECRET, JWT_EXPIRE } from 'config/auth';
     }),
 
   ],
-  providers: [AuthService, LocalStrategy],
+  providers: [AuthService, LocalStrategy, JwtStrategy],
   controllers: [AuthController],
   exports: [AuthService]
 })
