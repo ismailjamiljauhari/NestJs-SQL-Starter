@@ -4,6 +4,7 @@ import { Repository } from 'typeorm';
 
 import { UsersEntity } from './users.entity';
 import { UsersDTO } from './users.dto';
+import { RegisterDTO } from 'src/auth/dto/register.dto';
 
 @Injectable()
 export class UsersService {
@@ -22,6 +23,14 @@ export class UsersService {
                 email: email,
             },
         });
+    }
+
+    
+    async create(payload: RegisterDTO) {
+        const user = await this.usersRepository.create(payload);
+        await this.usersRepository.save(user);
+
+        return user;
     }
 
     async update(id: number, data: Partial<UsersDTO>) {
