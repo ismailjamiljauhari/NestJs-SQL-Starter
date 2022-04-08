@@ -28,7 +28,6 @@ export class AuthService {
 
     async getCurrentUser(email: string): Promise<any> {
         const user = await this.findUserByEmail(email);
-
         return user;
     }
 
