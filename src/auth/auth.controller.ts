@@ -5,7 +5,6 @@ import { AuthService } from './auth.service';
 import { LoginSocialiteDTO } from './dto/login-socialite.dto';
 import { LoginDTO } from './dto/login.dto';
 import { JwtAuthGuard } from './jwt-auth.guard';
-import * as bcrypt from 'bcrypt';
 import { RegisterDTO } from './dto/register.dto';
 
 @Controller()
