@@ -7,6 +7,7 @@ import { TypeormModule as TypeormModuleConfig} from './typeorm/typeorm.module';
 import { TypeormService } from './typeorm/typeorm.service';
 import { AuthModule } from './auth/auth.module';
 import { AuthController } from './auth/auth.controller';
+import { ApiResponseModule } from './api-response/api-response.module';
 
 @Module({
   imports: [
@@ -14,7 +15,7 @@ import { AuthController } from './auth/auth.controller';
     TypeOrmModule.forRootAsync({
       useClass: TypeormService
     }), 
-    TypeormModuleConfig, AuthModule
+    TypeormModuleConfig, AuthModule, ApiResponseModule
   ],
   controllers: [AppController, AuthController],
   providers: [AppService],
