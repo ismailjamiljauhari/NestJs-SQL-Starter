@@ -42,4 +42,12 @@ export class UsersService {
         await this.usersRepository.delete({ id });
         return { deleted: true };
     }
+
+    private async isExistUser(field: string, value: any) {
+        const dataCount = this.usersRepository
+            .createQueryBuilder('users')
+            .where(field, value)
+            .getCount()
+        return await dataCount > 0 ? true : false;
+    }
 }
